@@ -204,9 +204,9 @@ function `kronecker` from {package:base} by package:methods
 --------------------------------------------------------------------------------
 -                         Program Run Time Information                         -
 --------------------------------------------------------------------------------
-Start time: 2026-06-25 03:55:17 UTC
-End time: 2026-06-25 03:55:17 UTC
-Run time: 0 seconds
+Start time: 2026-06-25 21:33:14 UTC
+End time: 2026-06-25 21:33:15 UTC
+Run time: 1 seconds
 --------------------------------------------------------------------------------
 -                             Errors and Warnings                              -
 --------------------------------------------------------------------------------
@@ -221,11 +221,11 @@ Warnings:
 Messages:
 	
 Output:
-	Test passed with 2 successes 😸.
-	Test passed with 1 success 🎉.
-	Test passed with 3 successes 😸.
 	Test passed with 2 successes 🌈.
 	Test passed with 1 success 😸.
+	Test passed with 3 successes 🥇.
+	Test passed with 2 successes 🌈.
+	Test passed with 1 success 🎉.
 
 Result:
 	[1] TRUE

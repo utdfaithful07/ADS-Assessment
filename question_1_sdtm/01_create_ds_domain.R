@@ -20,6 +20,7 @@ library(sdtm.oak)
 library(pharmaverse)
 library(pharmaverseraw)
 library(pharmaversesdtm)
+library(labelled)
 
 ds_raw <- pharmaverseraw::ds_raw
 
@@ -91,7 +92,7 @@ ds1 <- ds0 |>
   
   # DSDECOD logic - IT.DSDECOD == "Randomized"
   hardcode_no_ct(
-    raw_dat = condition_add(ds_raw, IT.DSDECOD == "Randomized" ) ,
+    raw_dat = condition_add(ds_raw, is.na(OTHERSP) & IT.DSDECOD == "Randomized" ) ,
     raw_var = "IT.DSDECOD" ,
     tgt_var = "DSCAT" ,
     tgt_val = "PROTOCOL MILESTONE" , 
@@ -100,7 +101,7 @@ ds1 <- ds0 |>
   
   # DSDECOD logic - IT.DSDECOD != "Randomized"
   hardcode_no_ct(
-    raw_dat = condition_add(ds_raw, IT.DSDECOD != "Randomized" ) ,
+    raw_dat = condition_add(ds_raw, is.na(OTHERSP) & IT.DSDECOD != "Randomized" ) ,
     raw_var = "IT.DSDECOD" ,
     tgt_var = "DSCAT" ,
     tgt_val = "DISPOSITION EVENT" , 
@@ -115,7 +116,8 @@ ds2 <- ds1 |>
     tgt_var = "DSSTDTC",
     raw_dat = ds_raw , 
     raw_var = "IT.DSSTDAT" ,
-    raw_fmt = "mm-dd-yy",
+    # raw_fmt = "mm-dd-yy",
+    raw_fmt = "m-d-y",
     id_vars = oak_id_vars()
   ) |>
   
@@ -124,7 +126,8 @@ ds2 <- ds1 |>
     tgt_var = "DSDTC",
     raw_dat = ds_raw , 
     raw_var = c("DSDTCOL", "DSTMCOL"),
-    raw_fmt = c("mm-dd-yy", "H:M") ,
+    raw_fmt = c("m-d-y", "H:M") ,
+    #raw_fmt = c("mm-dd-yy", "H:M") ,
     id_vars = oak_id_vars()
   ) |> 
   
@@ -154,7 +157,7 @@ ds3 <- ds2 |>
   dplyr::mutate(
     STUDYID = ds_raw$STUDY ,
     DOMAIN = "DS" ,
-    USUBJID = paste0("01-" , patient_number )
+    USUBJID = paste0(STUDYID, "-", patient_number )
   ) |>
   
   ## Using sdtm.oak::derive_study_day to derive DSSTDY
@@ -199,8 +202,6 @@ labelled::var_label(ds) <- list(
 
 ## Adding Disposition label to ds
 comment(ds) <- "Disposition"
-comment(ds)
-
 
    
 ################################################################################

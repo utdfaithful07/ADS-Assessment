@@ -11,7 +11,7 @@ logrx link to repository: https://github.com/pharmaverse/logrx
 User: r3860550
 File Name: 01_create_ds_domain.R
 File Path: /cloud/project/question_1_sdtm
-File HashSum: ef85257251f6b8183446ab0b3db6bea565aac70e
+File HashSum: 175c46cc5be9f5aa234ce74faadecaf9ee0a1d6e
 --------------------------------------------------------------------------------
 -                             Session Information                              -
 --------------------------------------------------------------------------------
@@ -206,8 +206,8 @@ function `kronecker` from {package:base} by package:methods
 --------------------------------------------------------------------------------
 -                         Program Run Time Information                         -
 --------------------------------------------------------------------------------
-Start time: 2026-06-25 03:55:12 UTC
-End time: 2026-06-25 03:55:14 UTC
+Start time: 2026-06-25 21:33:22 UTC
+End time: 2026-06-25 21:33:24 UTC
 Run time: 2 seconds
 --------------------------------------------------------------------------------
 -                             Errors and Warnings                              -
@@ -229,23 +229,23 @@ Messages:
 	ℹ These terms could not be mapped per the controlled terminology: "Ambul Ecg Removal", "Unscheduled 6.1", "Unscheduled 1.1", "Unscheduled 5.1", "Unscheduled 4.1", "Unscheduled 8.2", and "Unscheduled 13.1".
 Output:
 	
-	indexing sdtm_ct.csv [================================================================================================] 711.01MB/s, eta:  0s
+	indexing sdtm_ct.csv [================================================================================================] 834.67MB/s, eta:  0s
 	                                                                                                                                            
 
 Result:
 	# A tibble: 850 × 12
-	   STUDYID      DOMAIN USUBJID     DSSEQ DSTERM                DSDECOD               DSCAT            VISITNUM VISIT DSDTC DSSTDTC    DSSTDY
-	   <chr>        <chr>  <chr>       <int> <chr>                 <chr>                 <chr>            <chr>    <chr> <iso> <date>      <int>
-	 1 CDISCPILOT01 DS     01-701-1015     1 Protocol Completed    COMPLETED             DISPOSITION EVE… 13       WEEK… 2014… 2014-07-02    182
-	 2 CDISCPILOT01 DS     01-701-1015     2 Final Lab Visit       Final Lab Visit       <NA>             13       WEEK… 2014… 2014-07-02    182
-	 3 CDISCPILOT01 DS     01-701-1015     3 Randomized            RANDOMIZED            PROTOCOL MILEST… 3        BASE… 2014… 2014-01-02      1
-	 4 CDISCPILOT01 DS     01-701-1023     1 Adverse Event         ADVERSE EVENT         DISPOSITION EVE… 5        WEEK… 2012… 2012-09-02     29
-	 5 CDISCPILOT01 DS     01-701-1023     2 Final Lab Visit       Final Lab Visit       <NA>             5        WEEK… 2012… 2012-09-02     29
-	 6 CDISCPILOT01 DS     01-701-1023     3 Final Retrieval Visit Final Retrieval Visit <NA>             201      RETR… 2013… 2013-02-18    198
-	 7 CDISCPILOT01 DS     01-701-1023     4 Randomized            RANDOMIZED            PROTOCOL MILEST… 3        BASE… 2012… 2012-08-05      1
-	 8 CDISCPILOT01 DS     01-701-1028     1 Protocol Completed    COMPLETED             DISPOSITION EVE… 13       WEEK… 2014… 2014-01-14    180
-	 9 CDISCPILOT01 DS     01-701-1028     2 Final Lab Visit       Final Lab Visit       <NA>             13       WEEK… 2014… 2014-01-14    180
-	10 CDISCPILOT01 DS     01-701-1028     3 Randomized            RANDOMIZED            PROTOCOL MILEST… 3        BASE… 2013… 2013-07-19      1
+	   STUDYID      DOMAIN USUBJID               DSSEQ DSTERM                DSDECOD               DSCAT  VISITNUM VISIT DSDTC DSSTDTC    DSSTDY
+	   <chr>        <chr>  <chr>                 <int> <chr>                 <chr>                 <chr>  <chr>    <chr> <iso> <date>      <int>
+	 1 CDISCPILOT01 DS     CDISCPILOT01-701-1015     1 Protocol Completed    COMPLETED             DISPO… 13       WEEK… 2014… 2014-07-02     NA
+	 2 CDISCPILOT01 DS     CDISCPILOT01-701-1015     2 Final Lab Visit       Final Lab Visit       <NA>   13       WEEK… 2014… 2014-07-02     NA
+	 3 CDISCPILOT01 DS     CDISCPILOT01-701-1015     3 Randomized            RANDOMIZED            PROTO… 3        BASE… 2014… 2014-01-02     NA
+	 4 CDISCPILOT01 DS     CDISCPILOT01-701-1023     1 Adverse Event         ADVERSE EVENT         DISPO… 5        WEEK… 2012… 2012-09-02     NA
+	 5 CDISCPILOT01 DS     CDISCPILOT01-701-1023     2 Final Lab Visit       Final Lab Visit       <NA>   5        WEEK… 2012… 2012-09-02     NA
+	 6 CDISCPILOT01 DS     CDISCPILOT01-701-1023     3 Final Retrieval Visit Final Retrieval Visit <NA>   201      RETR… 2013… 2013-02-18     NA
+	 7 CDISCPILOT01 DS     CDISCPILOT01-701-1023     4 Randomized            RANDOMIZED            PROTO… 3        BASE… 2012… 2012-08-05     NA
+	 8 CDISCPILOT01 DS     CDISCPILOT01-701-1028     1 Protocol Completed    COMPLETED             DISPO… 13       WEEK… 2014… 2014-01-14     NA
+	 9 CDISCPILOT01 DS     CDISCPILOT01-701-1028     2 Final Lab Visit       Final Lab Visit       <NA>   13       WEEK… 2014… 2014-01-14     NA
+	10 CDISCPILOT01 DS     CDISCPILOT01-701-1028     3 Randomized            RANDOMIZED            PROTO… 3        BASE… 2013… 2013-07-19     NA
 	# ℹ 840 more rows
 	# ℹ Use `print(n = ...)` to see more rows
 --------------------------------------------------------------------------------
