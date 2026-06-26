@@ -18,17 +18,10 @@ library(admiral)
 library(metatools)
 library(labelled)
 
+### Sourcing dev_functions.R script  
+source("utils/dev_functions.R")
 
-
-### Think about a script to include these function and source them in
-
-
-### Load SDTMs from pharmaversesdtm and admiral::convert_blanks_to_na() using sdtm_in function
-sdtm_in <- function(sdtm_name) {
-  getExportedValue("pharmaversesdtm", sdtm_name) |>
-    admiral::convert_blanks_to_na()
-}
-
+### Reading in SDTMs
 dm <- sdtm_in("dm")
 suppdm <- sdtm_in("suppdm")
 ex <- sdtm_in("ex")
@@ -67,6 +60,7 @@ adsl1 <- adsl0 |>
 
 ### Deriving TRTSDTM/TRTSTMF using EX domain
 ex0 <- ex |>
+  
   ## convert EXSTDTC to a datetime, impute missing time only 
   admiral::derive_vars_dtm(
     new_vars_prefix  = "EXST",
@@ -158,9 +152,8 @@ ds_dt <- ds |>
   ungroup()
 
 
-
 ## Creation of event() lists (which point to a source data frame and the date column to consider)
-  ## These lists are then feed into derive_vars_extreme_event() in next step
+  ## These lists are then feed into derive_vars_extreme_event() downstream
 vs_event <- admiral::event(
   dataset_name = "vs",
   set_values_to = exprs(LSTAVLDT = VSDT)
@@ -182,8 +175,6 @@ trt_event <- event(
   set_values_to = exprs(LSTAVLDT = TRTEDT)    
 )
 
-## The duplicate-records warning reflects benign cross-source date agreement 
-  # e.g. last dose and last disposition on the same day — and does not affect LSTAVLDT
 adsl3 <- adsl2 |>
   admiral::derive_vars_extreme_event(
     by_vars      = exprs(STUDYID, USUBJID),
@@ -200,42 +191,20 @@ adsl3 <- adsl2 |>
     new_vars         = exprs(LSTAVLDT)
   )
 
-# NOTE on the "duplicate records STUDYID/USUBJID/LSTAVLDT" warning:
-# This warning is expected and benign here. Each source is already collapsed to
-# one row per subject (slice_max above), so the duplicates are NOT within a
-# source, they are CROSS-source ties: two or more domains independently report
-# the same last date for a subject. Diagnosed across all flagged groups, every
-# case is a cross-source tie (most commonly DS+VS and DS+EX+VS), which is the
-# normal end-of-study pattern: final vitals, last dose, and disposition fall on
-# the same final-visit day. Because we extract only the date and the tied records
-# carry identical dates, LSTAVLDT is correct and deterministic regardless of
-# which tied record is kept. 
+## The duplicate-records warning reflects benign cross-source date agreement 
+  # e.g. last dose and last disposition on the same day — and does not affect LSTAVLDT
+  # Please see question_2_adam/diagnositcs.R for further investigation 
+
+# Saving data frames above to investigate further
+saveRDS(vs_dt, "question_2_adam/output/intermediate/vs_dt.rds")
+saveRDS(ae_dt, "question_2_adam/output/intermediate/ae_dt.rds")
+saveRDS(ds_dt, "question_2_adam/output/intermediate/ds_dt.rds")
+saveRDS(adsl2, "question_2_adam/output/intermediate/adsl2.rds")
 
 
-# --- Diagnostic: find what's actually duplicated across the stacked sources ---
-# stacked <- bind_rows(
-#   vs_dt %>% transmute(STUDYID, USUBJID, LSTAVLDT = VSDT,    SRC = "VS"),
-#   ae_dt %>% transmute(STUDYID, USUBJID, LSTAVLDT = ASTDT,  SRC = "AE"),
-#   ds_dt %>% transmute(STUDYID, USUBJID, LSTAVLDT = DSSTDT, SRC = "DS"),
-#   adsl2  %>% filter(!is.na(TRTEDT)) %>%
-#     transmute(STUDYID, USUBJID, LSTAVLDT = TRTEDT, SRC = "EX")
-# )
-# 
-# dups <- stacked %>%
-#   group_by(STUDYID, USUBJID, LSTAVLDT) %>%
-#   filter(n() > 1) %>%
-#   arrange(USUBJID, LSTAVLDT) %>%
-#   ungroup()
-# 
-# print(dups)
-# 
-# saveRDS(dups, "question_2_adam/output/dups.rds")
-
-
-### Final ADSL 
+### Output ADSL
 adsl <- adsl3 |>
   dplyr::arrange(STUDYID, USUBJID)
-
 
 
 
