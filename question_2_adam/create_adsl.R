@@ -1,10 +1,11 @@
 ################################################################################
-# Question 2: ADaM ADSL Creation using admiral
+# Question 2: ADaM ADSL Creation using {admiral}
 ################################################################################
 # Objective : Create the ADaM ADSL using admiral package whenever possible 
 #
 # Vars needed for derivation: AGEGR9/AGEGR9N, TRTSDTM, TRTSTMF, ITTFL, LSTAVLDT
-# Date: 25JUN2026
+# 
+# Date: 26JUN2026
 # Author: utdfaithful07 
 ################################################################################
 
@@ -22,12 +23,12 @@ library(labelled)
 source("utils/dev_functions.R")
 
 ### Reading in SDTMs
-dm <- sdtm_in("dm")
-suppdm <- sdtm_in("suppdm")
-ex <- sdtm_in("ex")
-vs <- sdtm_in("vs")
-ds <- sdtm_in("ds")
-ae <- sdtm_in("ae")
+dm <- pharmaverse_in("dm")
+suppdm <- pharmaverse_in("suppdm")
+ex <- pharmaverse_in("ex")
+vs <- pharmaverse_in("vs")
+ds <- pharmaverse_in("ds")
+ae <- pharmaverse_in("ae")
 
 ## Combine DM and SUPPDM for ADSL base  
 dm_suppdm <- metatools::combine_supp(dm, suppdm)
@@ -193,13 +194,7 @@ adsl3 <- adsl2 |>
 
 ## The duplicate-records warning reflects benign cross-source date agreement 
   # e.g. last dose and last disposition on the same day — and does not affect LSTAVLDT
-  # Please see question_2_adam/diagnositcs.R for further investigation 
-
-# Saving data frames above to investigate further
-saveRDS(vs_dt, "question_2_adam/output/intermediate/vs_dt.rds")
-saveRDS(ae_dt, "question_2_adam/output/intermediate/ae_dt.rds")
-saveRDS(ds_dt, "question_2_adam/output/intermediate/ds_dt.rds")
-saveRDS(adsl2, "question_2_adam/output/intermediate/adsl2.rds")
+  # Please see question_2_adam/diagnostics.R for further investigation 
 
 
 ### Output ADSL
