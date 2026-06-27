@@ -29,9 +29,12 @@ pharmaverse_in <- function(data_name, domain_type = "sdtm") {
     admiral::convert_blanks_to_na()
 }
 
-## Dynamic footnote gen_time value - to be used across outputs
-  # fill this in tomorrow 
-gen_time <- format(Sys.time(), "%d%b%Y %H:%M %Z", tz="America/New_York" )
-
+################################################################
+### gen_time function
+## Purpose: used to create dynamic generated date footnote for outputs 
+##
+##   returns: current date/time in EST
+################################################################
+gen_time <- function() paste0("Generated on: ", format(Sys.time(), "%d%b%Y %H:%M %Z", tz="America/New_York"))
 
 

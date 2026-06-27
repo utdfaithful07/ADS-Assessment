@@ -48,7 +48,8 @@ ae_tbl <- teae |>
   ) |>
   
   # Including total column per instructions with gtsummary::add_overall
-  gtsummary::add_overall(last = TRUE, col_label = "**Total** N = {N}") |>
+    ## Debugging with Claude - to ensure N is below Total here 
+  gtsummary::add_overall(last = TRUE, col_label = gt::html("<strong>Total</strong><br>N = {N}")) |>
   
   # Sorting by descending frequency using gtsummary::sort_hierarchical
   gtsummary::sort_hierarchical(sort="descending") |> 
@@ -57,14 +58,11 @@ ae_tbl <- teae |>
   gtsummary::modify_caption("**Treatment-Emergent Adverse Events by System Organ Class and Preferred Term**")
   
   
-### Exporting as HTML with dynamic footnote letting reviewer know when TLF is generated 
-gen_time <- format(Sys.time(), "%d%b%Y %H:%M %Z", tz="America/New_York" )
-path <- "question_3_tlg/output/"
-  
+### Exporting as HTML with dynamic footnote in dev_functions.R letting reviewer know when TLF is generated 
 ae_tbl |>
   gtsummary::as_gt() |>
   gt::tab_source_note(
-    source_note = gt::md(paste0("*Output generated: ", gen_time, "*"))
+    source_note = gt::md(gen_time())
   ) |>
   gt::gtsave(filename = "question_3_tlg/output/ae_summary_table.html")  
 
