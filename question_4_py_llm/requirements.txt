@@ -1,0 +1,4 @@
+pandas==3.0.4
+# Optional - only needed for the live Claude path (mock path needs neither):
+anthropic==0.112.0
+python-dotenv==1.2.2
