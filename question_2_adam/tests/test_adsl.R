@@ -34,8 +34,10 @@ test_that("ADSL exists and is one row per subject", {
 # Test 2: ITTFL is "Y" exactly when ARM is populated, "N" otherwise.
 #   Spec: set "Y" if DM.ARM is not missing, else "N".
 # -----------------------------------------------------------------------------
+adsl <- readRDS(adsl_path)
+
 test_that("ITTFL flags randomized (ARM-populated) subjects correctly", {
-  # Only valid values are Y / N (no NA, no other strings)
+  # Only valid values are Y (no NA, no other strings)
   expect_true(all(adsl$ITTFL %in% c("Y", "N")))
   
   # Every "Y" must have a populated ARM; every "N" must have a missing ARM.

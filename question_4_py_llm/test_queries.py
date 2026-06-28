@@ -9,6 +9,9 @@ If ANTHROPIC_API_KEY is set in the environment (or a .env file), it will instead
 
 Usage:
     python test_queries.py
+    
+Date: 27JUN2026
+Author: utdfaithful07 
 """
 
 import os

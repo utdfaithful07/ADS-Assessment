@@ -11,7 +11,7 @@ logrx link to repository: https://github.com/pharmaverse/logrx
 User: r3860550
 File Name: create_adsl.R
 File Path: /cloud/project/question_2_adam
-File HashSum: f83109fa939e5d46d4fecb2f4ddf01299c1e83ee
+File HashSum: 98261b7652bd2c1ae1b68072ffc66c9d0645f195
 --------------------------------------------------------------------------------
 -                             Session Information                              -
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ File HashSum: f83109fa939e5d46d4fecb2f4ddf01299c1e83ee
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2026-06-26
+ date     2026-06-27
  rstudio  2026.05.0+218.pro1 Golden Wattle (server)
  pandoc   NA
  quarto   1.8.27 @ /usr/bin/quarto
@@ -34,8 +34,14 @@ File HashSum: f83109fa939e5d46d4fecb2f4ddf01299c1e83ee
  package         * version date (UTC) lib source
  admiral         * 1.5.0   2026-06-12 [1] RSPM
  admiraldev        1.5.0   2026-06-10 [1] RSPM
+ assertthat        0.2.1   2019-03-21 [1] RSPM
+ bit               4.6.0   2025-03-06 [1] RSPM
+ bit64             4.8.2   2026-05-19 [1] RSPM
+ brio              1.1.5   2024-04-24 [1] RSPM
  cellranger        1.1.0   2016-07-27 [1] RSPM
  cli               3.6.6   2026-04-09 [1] RSPM
+ crayon            1.5.3   2024-06-20 [1] RSPM
+ desc              1.4.3   2023-12-10 [1] RSPM
  digest            0.6.39  2025-11-19 [1] RSPM
  dplyr           * 1.2.1   2026-04-03 [1] RSPM
  evaluate          1.0.5   2025-08-27 [1] RSPM
@@ -44,6 +50,7 @@ File HashSum: f83109fa939e5d46d4fecb2f4ddf01299c1e83ee
  glue              1.8.1   2026-04-17 [1] RSPM
  haven           * 2.5.5   2025-05-30 [1] RSPM
  hms               1.1.4   2025-10-17 [1] RSPM
+ httr              1.4.8   2026-02-13 [1] RSPM
  knitr             1.51    2025-12-20 [1] RSPM
  labelled        * 2.16.0  2025-10-22 [1] RSPM
  lifecycle         1.0.5   2026-01-08 [1] RSPM
@@ -53,25 +60,34 @@ File HashSum: f83109fa939e5d46d4fecb2f4ddf01299c1e83ee
  metacore          0.3.0   2026-04-22 [1] RSPM
  metatools       * 0.3.0   2026-04-28 [1] RSPM
  otel              0.2.0   2025-08-29 [1] RSPM
+ pharmaverse     * 0.0.2   2023-03-15 [1] RSPM
+ pharmaverseraw  * 0.1.1   2025-08-30 [1] RSPM
  pharmaversesdtm * 1.4.1   2026-03-30 [1] RSPM
  pillar            1.11.1  2025-09-17 [1] RSPM
  pkgconfig         2.0.3   2019-09-22 [1] RSPM
+ pkgload           1.5.3   2026-06-15 [1] RSPM
  purrr             1.2.2   2026-04-10 [1] RSPM
  R6                2.6.1   2025-02-15 [1] RSPM
  readr             2.2.0   2026-02-19 [1] RSPM
  readxl            1.5.0   2026-05-16 [1] RSPM
  rlang             1.2.0   2026-04-06 [1] RSPM
  roxygen2          8.0.0   2026-05-01 [1] RSPM
+ rprojroot         2.1.1   2025-08-26 [1] RSPM
  rstudioapi        0.19.0  2026-06-11 [1] RSPM
+ sdtm.oak        * 0.2.0   2025-05-22 [1] RSPM
  sessioninfo       1.2.4   2026-06-04 [1] RSPM
  stringi           1.8.7   2025-03-27 [1] RSPM
  stringr         * 1.6.0   2025-11-04 [1] RSPM
+ testthat        * 3.3.2   2026-01-11 [1] RSPM
  tibble            3.3.1   2026-01-11 [1] RSPM
  tidyr             1.3.2   2025-12-19 [1] RSPM
  tidyselect        1.2.1   2024-03-11 [1] RSPM
  timechange        0.4.0   2026-01-29 [1] RSPM
  tzdb              0.5.0   2025-03-15 [1] RSPM
+ utf8              1.2.6   2025-06-08 [1] RSPM
  vctrs             0.7.3   2026-04-11 [1] RSPM
+ vroom             1.7.1   2026-03-31 [1] RSPM
+ waldo             0.6.2   2025-07-11 [1] RSPM
  withr             3.0.3   2026-06-19 [1] RSPM
  xfun              0.59    2026-06-19 [1] RSPM
  xml2              1.5.2   2026-01-17 [1] RSPM
@@ -112,16 +128,7 @@ File HashSum: f83109fa939e5d46d4fecb2f4ddf01299c1e83ee
 --------------------------------------------------------------------------------
 -                               Masked Functions                               -
 --------------------------------------------------------------------------------
-function `ae_event` from {package:admiral} by .GlobalEnv
-function `ae` from {package:pharmaversesdtm} by .GlobalEnv
-function `dm` from {package:pharmaversesdtm} by .GlobalEnv
-function `ds` from {package:pharmaversesdtm} by .GlobalEnv
-function `ex` from {package:pharmaversesdtm} by .GlobalEnv
-function `suppdm` from {package:pharmaversesdtm} by .GlobalEnv
-function `vs` from {package:pharmaversesdtm} by .GlobalEnv
-function `%>%` from {package:metatools, package:admiral, package:stringr, package:dplyr} by package:labelled
-function `remove_labels` from {package:metatools} by package:labelled
-function `set_variable_labels` from {package:metatools} by package:labelled
+function `%>%` from {package:labelled, package:dplyr} by package:testthat
 function `format_tagged_na` from {package:haven} by package:labelled
 function `is_tagged_na` from {package:haven} by package:labelled
 function `is.labelled` from {package:haven} by package:labelled
@@ -131,28 +138,21 @@ function `na_tag` from {package:haven} by package:labelled
 function `print_labels` from {package:haven} by package:labelled
 function `print_tagged_na` from {package:haven} by package:labelled
 function `tagged_na` from {package:haven} by package:labelled
-function `desc` from {package:dplyr} by package:admiral
-function `ms` from {package:lubridate} by package:pharmaversesdtm
 function `ts` from {package:stats} by package:pharmaversesdtm
 function `cm` from {package:grDevices} by package:pharmaversesdtm
-function `intersect` from {package:dplyr, package:base} by package:lubridate
-function `setdiff` from {package:dplyr, package:base} by package:lubridate
-function `union` from {package:dplyr, package:base} by package:lubridate
-function `Arith` from {package:methods} by package:lubridate
-function `Compare` from {package:methods} by package:lubridate
-function `show` from {package:methods} by package:lubridate
-function `as.difftime` from {package:base} by package:lubridate
-function `date` from {package:base} by package:lubridate
 function `filter` from {package:stats} by package:dplyr
 function `lag` from {package:stats} by package:dplyr
+function `intersect` from {package:base} by package:dplyr
+function `setdiff` from {package:base} by package:dplyr
 function `setequal` from {package:base} by package:dplyr
+function `union` from {package:base} by package:dplyr
 function `plot` from {package:base} by package:graphics
 function `body<-` from {package:base} by package:methods
 function `kronecker` from {package:base} by package:methods
 --------------------------------------------------------------------------------
 -                          Used Package and Functions                          -
 --------------------------------------------------------------------------------
-{.GlobalEnv} sdtm_in
+{.GlobalEnv} pharmaverse_in
 {package:admiral} exprs, derive_vars_cat, derive_vars_dtm, derive_vars_merged, derive_vars_dtm_to_dt, derive_vars_dt, event, derive_vars_extreme_event
 {package:base} library, source, is.na, list, comment, saveRDS
 {package:dplyr} mutate, if_else, select, filter, group_by, slice_max, ungroup, arrange
@@ -163,8 +163,8 @@ function `kronecker` from {package:base} by package:methods
 --------------------------------------------------------------------------------
 -                         Program Run Time Information                         -
 --------------------------------------------------------------------------------
-Start time: 2026-06-26 23:28:18 UTC
-End time: 2026-06-26 23:28:20 UTC
+Start time: 2026-06-27 22:49:29 UTC
+End time: 2026-06-27 22:49:31 UTC
 Run time: 2 seconds
 --------------------------------------------------------------------------------
 -                             Errors and Warnings                              -
@@ -173,36 +173,40 @@ Errors:
 	
 
 Warnings:
-	Check duplicates: the dataset which consists of all records selected for any of the events defined by `events` contains
-duplicate records with respect to `STUDYID`, `USUBJID`, and `LSTAVLDT`
+	Check duplicates: the dataset which consists of all records selected for any of the events defined by
+`events` contains duplicate records with respect to `STUDYID`, `USUBJID`, and `LSTAVLDT`
 ℹ Run `admiral::get_duplicates_dataset()` to access the duplicate records
 --------------------------------------------------------------------------------
 -                         Messages, Output, and Result                         -
 --------------------------------------------------------------------------------
 Messages:
-	
+	Attaching package: ‘lubridate’
+	The following objects are masked from ‘package:base’:    date, intersect, setdiff, union
+	Attaching package: ‘metatools’
+	The following objects are masked from ‘package:labelled’:    remove_labels, set_variable_labels
 Output:
 	
 
 Result:
 	# A tibble: 306 × 43
-	   STUDYID     USUBJID SUBJID RFSTDTC RFENDTC RFXSTDTC RFXENDTC RFICDTC RFPENDTC DTHDTC DTHFL SITEID BRTHDTC   AGE AGEU  SEX  
-	   <chr>       <chr>   <chr>  <chr>   <chr>   <chr>    <chr>    <chr>   <chr>    <chr>  <chr> <chr>  <chr>   <dbl> <chr> <chr>
-	 1 CDISCPILOT… 01-701… 1015   2014-0… 2014-0… 2014-01… 2014-07… <NA>    2014-07… <NA>   <NA>  701    1950-1…    63 YEARS F    
-	 2 CDISCPILOT… 01-701… 1023   2012-0… 2012-0… 2012-08… 2012-09… <NA>    2013-02… <NA>   <NA>  701    1948-0…    64 YEARS M    
-	 3 CDISCPILOT… 01-701… 1028   2013-0… 2014-0… 2013-07… 2014-01… <NA>    2014-01… <NA>   <NA>  701    1942-0…    71 YEARS M    
-	 4 CDISCPILOT… 01-701… 1033   2014-0… 2014-0… 2014-03… 2014-03… <NA>    2014-09… <NA>   <NA>  701    1940-0…    74 YEARS M    
-	 5 CDISCPILOT… 01-701… 1034   2014-0… 2014-1… 2014-07… 2014-12… <NA>    2014-12… <NA>   <NA>  701    1937-0…    77 YEARS F    
-	 6 CDISCPILOT… 01-701… 1047   2013-0… 2013-0… 2013-02… 2013-03… <NA>    2013-07… <NA>   <NA>  701    1928-0…    85 YEARS F    
-	 7 CDISCPILOT… 01-701… 1057   <NA>    <NA>    <NA>     <NA>     <NA>    2013-12… <NA>   <NA>  701    1954-1…    59 YEARS F    
-	 8 CDISCPILOT… 01-701… 1097   2014-0… 2014-0… 2014-01… 2014-07… <NA>    2014-07… <NA>   <NA>  701    1945-1…    68 YEARS M    
-	 9 CDISCPILOT… 01-701… 1111   2012-0… 2012-0… 2012-09… 2012-09… <NA>    2013-02… <NA>   <NA>  701    1931-0…    81 YEARS F    
-	10 CDISCPILOT… 01-701… 1115   2012-1… 2013-0… 2012-11… 2013-01… <NA>    2013-05… <NA>   <NA>  701    1928-1…    84 YEARS M    
+	   STUDYID  USUBJID SUBJID RFSTDTC RFENDTC RFXSTDTC RFXENDTC RFICDTC RFPENDTC DTHDTC DTHFL SITEID BRTHDTC
+	   <chr>    <chr>   <chr>  <chr>   <chr>   <chr>    <chr>    <chr>   <chr>    <chr>  <chr> <chr>  <chr>  
+	 1 CDISCPI… 01-701… 1015   2014-0… 2014-0… 2014-01… 2014-07… <NA>    2014-07… <NA>   <NA>  701    1950-1…
+	 2 CDISCPI… 01-701… 1023   2012-0… 2012-0… 2012-08… 2012-09… <NA>    2013-02… <NA>   <NA>  701    1948-0…
+	 3 CDISCPI… 01-701… 1028   2013-0… 2014-0… 2013-07… 2014-01… <NA>    2014-01… <NA>   <NA>  701    1942-0…
+	 4 CDISCPI… 01-701… 1033   2014-0… 2014-0… 2014-03… 2014-03… <NA>    2014-09… <NA>   <NA>  701    1940-0…
+	 5 CDISCPI… 01-701… 1034   2014-0… 2014-1… 2014-07… 2014-12… <NA>    2014-12… <NA>   <NA>  701    1937-0…
+	 6 CDISCPI… 01-701… 1047   2013-0… 2013-0… 2013-02… 2013-03… <NA>    2013-07… <NA>   <NA>  701    1928-0…
+	 7 CDISCPI… 01-701… 1057   <NA>    <NA>    <NA>     <NA>     <NA>    2013-12… <NA>   <NA>  701    1954-1…
+	 8 CDISCPI… 01-701… 1097   2014-0… 2014-0… 2014-01… 2014-07… <NA>    2014-07… <NA>   <NA>  701    1945-1…
+	 9 CDISCPI… 01-701… 1111   2012-0… 2012-0… 2012-09… 2012-09… <NA>    2013-02… <NA>   <NA>  701    1931-0…
+	10 CDISCPI… 01-701… 1115   2012-1… 2013-0… 2012-11… 2013-01… <NA>    2013-05… <NA>   <NA>  701    1928-1…
 	# ℹ 296 more rows
-	# ℹ 27 more variables: RACE <chr>, ETHNIC <chr>, ARMCD <chr>, ARM <chr>, ACTARMCD <chr>, ACTARM <chr>, COUNTRY <chr>,
-	#   DMDTC <chr>, DMDY <dbl>, ARMNRS <chr>, ACTARMUD <chr>, COMPLT16 <chr>, COMPLT24 <chr>, COMPLT8 <chr>, EFFICACY <chr>,
-	#   ITT <chr>, SAFETY <chr>, ITTFL <chr>, AGEGR9 <chr>, AGEGR9N <int>, TRTSDTM <dttm>, TRTSTMF <chr>, TRTEDTM <dttm>,
-	#   TRTETMF <chr>, TRTSDT <date>, TRTEDT <date>, LSTAVLDT <date>
+	# ℹ 30 more variables: AGE <dbl>, AGEU <chr>, SEX <chr>, RACE <chr>, ETHNIC <chr>, ARMCD <chr>,
+	#   ARM <chr>, ACTARMCD <chr>, ACTARM <chr>, COUNTRY <chr>, DMDTC <chr>, DMDY <dbl>, ARMNRS <chr>,
+	#   ACTARMUD <chr>, COMPLT16 <chr>, COMPLT24 <chr>, COMPLT8 <chr>, EFFICACY <chr>, ITT <chr>,
+	#   SAFETY <chr>, ITTFL <chr>, AGEGR9 <chr>, AGEGR9N <int>, TRTSDTM <dttm>, TRTSTMF <chr>,
+	#   TRTEDTM <dttm>, TRTETMF <chr>, TRTSDT <date>, TRTEDT <date>, LSTAVLDT <date>
 	# ℹ Use `print(n = ...)` to see more rows
 --------------------------------------------------------------------------------
 -                               Log Output File                                -
