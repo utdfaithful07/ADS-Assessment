@@ -63,4 +63,4 @@ file).
   a malformed response fails at the parse step rather than corrupting the filter.
 * **Schema-driven routing, not hard-coded rules.** Column meanings are described
   to the model, which decides the mapping on the live path. The mock uses light
-  keyword heuristics for the offline path only.
+  keyword heuristics for the offline path only. 

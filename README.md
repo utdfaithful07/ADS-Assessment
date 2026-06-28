@@ -9,7 +9,7 @@ SDTM -> ADaM -> TLG flow in R, plus a bonus GenAI data assistant in Python.
 | 2 | ADaM Subject-Level (ADSL) dataset | `{admiral}` + tidyverse |
 | 3 | TLG: TEAE summary table + AE plots | `{gtsummary}`, `{ggplot2}` |
 | 4 | *(Bonus)* NL -> structured-query AE assistant | Python, Anthropic API |
-
+ 
 ## Repository structure
 
 ```
